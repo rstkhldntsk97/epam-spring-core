@@ -12,19 +12,19 @@ import org.springframework.core.annotation.Order;
 public class AppConfig1 {
 
     @Order(1)
-    @Bean(name = "startBeanD", initMethod = "initMethod", destroyMethod = "destroyMethod")
-    BeanD getBeanD() {
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
+    BeanD beanD() {
         return new BeanD();
     }
 
     @Order(2)
-    @Bean(name = "startBeanB", initMethod = "initMethod", destroyMethod = "destroyMethod")
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     BeanB getBeanB() {
         return new BeanB();
     }
 
     @Order(3)
-    @Bean(name = "startBeanC", initMethod = "initMethod", destroyMethod = "destroyMethod")
+    @Bean(initMethod = "initMethod", destroyMethod = "destroyMethod")
     BeanC getBeanC() {
         return new BeanC();
     }

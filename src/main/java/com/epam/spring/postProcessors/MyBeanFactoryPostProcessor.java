@@ -12,7 +12,7 @@ public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
         try {
-            BeanDefinition beanB = configurableListableBeanFactory.getBeanDefinition("startBeanB");
+            BeanDefinition beanB = configurableListableBeanFactory.getBeanDefinition("getBeanB");
             beanB.setInitMethodName("anotherInit");
         } catch (Exception ex) {
             ex.printStackTrace();
