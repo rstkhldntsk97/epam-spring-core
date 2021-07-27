@@ -1,8 +1,10 @@
 package com.epam.spring.beans;
 
+import com.epam.spring.Validation;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
+@Validation
 public class BeanA implements InitializingBean, DisposableBean {
 
     String name;
@@ -39,11 +41,12 @@ public class BeanA implements InitializingBean, DisposableBean {
 
     @Override
     public void destroy() throws Exception {
-
+        System.out.println(this.getName() + " destroy");
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
-
+        System.out.println(this.getName() + " afterPropertiesSet");
     }
+
 }

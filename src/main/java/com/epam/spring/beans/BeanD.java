@@ -1,14 +1,18 @@
 package com.epam.spring.beans;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
+@PropertySource("application.properties")
+@Component
 public class BeanD {
 
+    @Value("${beanD.name}")
     String name;
-    Integer value;
 
-    public BeanD(String name, Integer value) {
-        this.name = name;
-        this.value = value;
-    }
+    @Value("${beanD.value}")
+    Integer value;
 
     public String getName() {
         return name;
@@ -32,6 +36,14 @@ public class BeanD {
                 "name= " + name + ' ' +
                 ", value= " + value +
                 ';';
+    }
+
+    void initMethod() {
+        System.out.println(this.getName() + " init");
+    }
+
+    void destroyMethod() {
+        System.out.println(this.getName() + " destroy");
     }
 
 }

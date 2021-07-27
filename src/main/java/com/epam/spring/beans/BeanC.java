@@ -1,14 +1,17 @@
 package com.epam.spring.beans;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
+
+@PropertySource("application.properties")
 public class BeanC {
 
+    @Value("${beanC.name}")
     String name;
-    Integer value;
 
-    public BeanC(String name, Integer value) {
-        this.name = name;
-        this.value = value;
-    }
+    @Value("${beanC.value}")
+    Integer value;
 
     public String getName() {
         return name;
@@ -32,6 +35,14 @@ public class BeanC {
                 "name= " + name + ' ' +
                 ", value= " + value +
                 ';';
+    }
+
+    void initMethod() {
+        System.out.println(this.getName() + " init");
+    }
+
+    void destroyMethod() {
+        System.out.println(this.getName() + " destroy");
     }
 
 }

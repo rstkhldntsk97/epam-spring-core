@@ -1,5 +1,11 @@
 package com.epam.spring.beans;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class BeanE {
 
     String name;
@@ -32,6 +38,16 @@ public class BeanE {
                 "name= " + name + ' ' +
                 ", value= " + value +
                 ';';
+    }
+
+    @PostConstruct
+    void postConstruct() {
+        System.out.println(this.getName() + " postConstruct");
+    }
+
+    @PreDestroy
+    void preDestroy() {
+        System.out.println(this.getName() + " preDestroy");
     }
 
 }

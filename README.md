@@ -1,6 +1,6 @@
-                                   Spring_2 Core
+                                            Spring_2 Core
 
-                       Java-based Container Configuration
+                                    Java-based Container Configuration
 
 
 

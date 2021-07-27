@@ -1,14 +1,22 @@
 package com.epam.spring.beans;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.annotation.Order;
+
+import javax.validation.Valid;
+
+
+@PropertySource("application.properties")
 public class BeanB {
 
+    @Valid()
+    @Value("${beanB.name}")
     String name;
-    Integer value;
 
-    public BeanB(String name, Integer value) {
-        this.name = name;
-        this.value = value;
-    }
+    @Valid
+    @Value("${beanB.value}")
+    Integer value;
 
     public String getName() {
         return name;
@@ -32,6 +40,18 @@ public class BeanB {
                 "name= " + name + ' ' +
                 ", value= " + value +
                 ';';
+    }
+
+    void initMethod() {
+        System.out.println(this.getName() + " init");
+    }
+
+    void anotherInit() {
+        System.out.println(this.getName() + " anotherInit (set by MyBeanFactoryPostProcessor)");
+    }
+
+    void destroyMethod() {
+        System.out.println(this.getName() + " destroy");
     }
 
 }
