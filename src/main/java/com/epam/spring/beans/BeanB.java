@@ -2,10 +2,8 @@ package com.epam.spring.beans;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.annotation.Order;
 
 import javax.validation.Valid;
-
 
 @PropertySource("application.properties")
 public class BeanB {

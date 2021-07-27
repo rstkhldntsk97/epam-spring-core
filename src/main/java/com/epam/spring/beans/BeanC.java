@@ -2,7 +2,6 @@ package com.epam.spring.beans;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.annotation.Order;
 
 @PropertySource("application.properties")
 public class BeanC {
